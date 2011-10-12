@@ -51,6 +51,10 @@ Friendsatsnow::Application.configure do
   # Enable threaded mode
   # config.threadsafe!
 
+  # disable asset pipeline, precompile instead
+  config.assets.precompile += %w( screen.css ie.css print.css)
+  config.serve_static_assets = true
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
