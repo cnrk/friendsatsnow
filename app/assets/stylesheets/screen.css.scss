@@ -1,0 +1,137 @@
+$blueprint_grid_columns : 24;
+$blueprint_grid_width : 40px;
+
+@import "mixins";
+@import "blueprint/reset";
+@import "blueprint";
+
+html {
+ @include resizing-background('/assets/background.jpg');
+}
+
+// -- layout
+
+.container {
+  //@include showgrid;
+  @include container;
+}
+
+#header {
+  @include base-margin(1);
+  @include base-height(2);
+  @include column(24);
+}
+
+#content {
+  @include base-height(16);
+  @include push(3);
+  @include column(14, true);
+  @include append(6);
+  background: url('/assets/blackboard.png') no-repeat -6px 0;
+  padding: $base-height*3 100px 100px 100px;
+}
+
+#navlink {
+  text-align: right;
+}
+
+#text {
+  @include base-height(8);
+}
+
+#wenger {
+  float: right;
+  padding: 8px 0px 0px 15px;
+}
+
+// -- forms
+
+@include blueprint-form-layout;
+
+ form {   
+   label {
+      @include prepend(2);
+      float: left;
+      width: span(3) + 10px;
+      padding-top: 12px;
+    }
+    input {
+      @include prepend(1);
+      font-family: 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      color: #000000;
+      width: span(6);
+    }
+ }
+
+ .error_explanation {
+   @include column(24,true);
+   @include base-height(1);
+   @include prepend(2);
+ }
+
+.actions {
+  @include column(24, true);
+  @include base-margin(1);
+  input {
+    @include push(8);
+    width: span(3) + 10px;
+    color: #ffffff;
+  }
+  input, input:visited {
+    font-weight: normal;
+    text-decoration: none;
+    color: #795844;
+  }
+  input:hover {
+   color: #916a52;
+  }
+  input:active {
+   color: #916a52;
+  }
+}
+
+
+ // -- typography
+
+
+body {
+  @include blueprint-typography(true);
+
+
+  #content { 
+    font-family: 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
+    //font-family: Arial, sans-serif;
+    //font-family: 'Delius', sans-serif;
+    font-size: 16px; // 16
+    font-weight: normal;
+    color: #dddddd;
+    text-align: justify;
+  }
+
+  h2 {
+    // font-family: Helvetica, Arial, Verdana, sans;
+    font-family: 'Delius', sans-serif;
+    //font-family: Arial, sans-serif;
+    font-weight: normal;
+    font-size: 22px; // 22
+    color: #aaaaaa;
+  }
+
+  .error_explanation {
+    color: #cc0000;
+  }
+
+  a, a:visited {
+   font-weight: normal;
+   text-decoration: none;
+   color: #795844;
+  }
+  a:hover {
+   color: #916a52;
+  }
+  a:active {
+   color: #916a52;
+  }
+}
