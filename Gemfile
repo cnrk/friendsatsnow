@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.1'
 gem 'activeadmin'
 gem 'rack', '1.3.3' # 1.3.4 spits out strange warnings.. 
-gem 'thin'
+#gem 'thin'
 
 gem 'sass-rails',   '~> 3.1.4'
 
