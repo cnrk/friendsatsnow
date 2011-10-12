@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.1'
 gem 'activeadmin'
 gem 'rack', '1.3.3' # 1.3.4 spits out strange warnings.. 
+gem 'thin'
 
  group :assets do
   gem 'sass-rails',   '~> 3.1.4'
@@ -13,7 +14,7 @@ end
 
 group :production do
   gem 'pg'
-  gem 'thin'
+
 end
 
 group :development, :test do
