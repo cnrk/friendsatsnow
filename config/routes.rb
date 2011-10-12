@@ -1,4 +1,13 @@
 Friendsatsnow::Application.routes.draw do
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  resources :participants, only: [:new, :create, :show]
+
+  root to:'pages#home'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -45,10 +54,8 @@ Friendsatsnow::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  
+  #match '/signup', to: 'participants#new'
 
   # See how all your routes lay out with "rake routes"
 

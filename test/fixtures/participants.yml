@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  email: test@foo.com
+  paid: false
+  notes: MyText
+
+two:
+  name: MyString
+  email: test@foo.com
+  paid: false
+  notes: MyText

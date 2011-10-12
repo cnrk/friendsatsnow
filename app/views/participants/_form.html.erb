@@ -1,0 +1,22 @@
+<%= form_for(@participant, remote: true) do |f| %>
+  <div class="error_explanation">
+  <% if @participant.errors.any? %>
+    <%= raw @participant.errors.full_messages[0] %>
+  <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :name %> 
+    <%= f.text_field :name %>
+  </div>
+   <div class="field">
+    <%= f.label :surname %> 
+    <%= f.text_field :surname %>
+  </div>
+  <div class="field">
+    <%= f.label :email %> 
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('.submit'), :disable_with => 'Anmelden' %>
+  </div>
+<% end %>
