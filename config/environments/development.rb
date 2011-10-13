@@ -28,8 +28,8 @@ Friendsatsnow::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.assets.precompile += %w( screen.css ie.css print.css)
-  config.serve_static_assets = true
+  #config.assets.precompile += %w( screen.css ie.css print.css)
+  config.serve_static_assets = false
 
   # action_mailer configuration
   config.action_mailer.perform_deliveries = true

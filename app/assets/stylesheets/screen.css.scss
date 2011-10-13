@@ -6,7 +6,7 @@ $blueprint_grid_width : 40px;
 @import "blueprint";
 
 html {
- @include resizing-background('/assets/background.jpg');
+  @include resizing-background('/assets/background.jpg');
 }
 
 // -- layout
@@ -75,8 +75,11 @@ html {
   @include column(24, true);
   @include base-margin(1);
   input {
-    @include push(8);
-    width: span(3) + 10px;
+    //@include push(9) + 20px;
+    margin-left: span(9) + 34px;
+    align: right;
+    width: auto;
+    overflow:visible;
     color: #ffffff;
   }
   input, input:visited {
