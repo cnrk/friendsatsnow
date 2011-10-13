@@ -4,14 +4,15 @@
   <title>Friendsatsnow</title>
   <%= stylesheet_link_tag "screen", media: 'screen, projection' %>
   <%= stylesheet_link_tag "print", media: 'print' %>
-  <!--[if lt IE8]>
-  <%= stylesheet_link_tag "ie", media: 'screen, projection' %>
-  <![endif]-->
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 8]>
+  <%= stylesheet_link_tag "ie", media: 'screen, projection' %>
+  <![endif]-->
   <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
 </head>
 <body>
+
   <div class="container">
     <div id="header">
       <%= link_to image_tag("logo2012.png", :border=>0), :controller => 'pages', :action => 'home' %>

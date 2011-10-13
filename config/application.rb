@@ -46,5 +46,9 @@ module Friendsatsnow
     config.assets.version = '1.0'
 
     I18n.default_locale = :de
+    config.i18n.default_locale = :de
+    config.i18n.locale = :de                                                                                                                                                                                          
+    I18n.locale = :de
+
   end
 end

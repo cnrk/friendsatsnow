@@ -75,12 +75,11 @@ html {
   @include column(24, true);
   @include base-margin(1);
   input {
-    //@include push(9) + 20px;
-    margin-left: span(9) + 34px;
-    align: right;
-    width: auto;
-    overflow:visible;
+    @include push(8);
+    width: span(3) + 10px;
     color: #ffffff;
+    align: center;
+    padding: 0px;
   }
   input, input:visited {
     font-weight: normal;
