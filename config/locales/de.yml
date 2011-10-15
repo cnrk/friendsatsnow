@@ -13,6 +13,7 @@ de:
         name: Vorname
         surname: Name
         payment_date: Bezahlt am
+        payment_confirmed: Zahlung bestätigt
         created_at: Angemeldet am
         updated_at: Geändert am
         submit: Anmelden
