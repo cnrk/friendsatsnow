@@ -4,6 +4,9 @@ de:
       participant:
         one: Teilnehmer
         other: Teilnehmer
+      admin_user:
+        one: Admin
+        other: Admins
     attributes:
       participant:
         email: Email
@@ -12,7 +15,7 @@ de:
         payment_date: Bezahlt am
         created_at: Angemeldet am
         updated_at: Geändert am
-        submit: Anmelden   
+        submit: Anmelden
   participants:
     form:
       submit: Anmelden
