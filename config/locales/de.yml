@@ -9,6 +9,9 @@ de:
         email: Email
         name: Vorname
         surname: Name
+        payment_date: Bezahlt am
+        created_at: Angemeldet am
+        updated_at: Geändert am
         submit: Anmelden   
   participants:
     form:
