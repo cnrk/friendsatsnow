@@ -1,0 +1,20 @@
+<%= semantic_form_for [:admin, @participant] do |f| %>
+  <%= f.inputs "Details" do %>
+    <%= f.input :name %>
+    <%= f.input :surname %>
+    <%= f.input :email %>
+  <% end %>
+  <%= f.inputs "Anmeldung" do %>
+    <%= f.input :created_at, input_html: { disabled: true } %>
+  <% end %>
+  <%= f.inputs "Zahlung" do %>
+    <%= f.input :payment_date %>
+    <%= f.input :payment_confirmed, input_html: { disabled: true }  %>
+    <ol>
+    <li>
+      <%= link_to "Zahlung bestätigen", controller: "participants", action: "confirm_payment", confirm: "Zahlung bestätigen?" %>
+    </li>
+    </ol>
+  <% end %>
+  <%= f.buttons :commit %>
+<% end %>

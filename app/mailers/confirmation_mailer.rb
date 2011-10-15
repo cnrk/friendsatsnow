@@ -5,4 +5,10 @@ class ConfirmationMailer < ActionMailer::Base
     @participant = participant
     mail to: @participant.email
   end
+
+  def confirm_payment(participant)
+    @participant = participant
+    mail to: @participant.email
+  end
+  
 end

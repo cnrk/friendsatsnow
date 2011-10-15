@@ -39,4 +39,5 @@ de:
   confirmation_mailer:
     confirm_signup:
       subject: "Anmeldebstätigung Friends@Snow 2012"
-
+    confirm_payment:
+      subject: "Zahlungsbestätigung Friends@Snow 2012"
