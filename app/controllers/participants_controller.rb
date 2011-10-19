@@ -19,6 +19,8 @@ class ParticipantsController < ApplicationController
       else
         format.js { render action: "new" }
       end
+      b = []
+      b.to_enum
     end
   end
 
