@@ -1,14 +1,14 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails'
 gem 'activeadmin'
-gem 'rack', '1.3.3' # 1.3.4 spits out strange warnings..
-gem 'sass-rails',   '~> 3.1.4'
-gem 'coffee-rails', '~> 3.1.1'
+gem 'rack'
+gem 'sass-rails'
+gem 'coffee-rails'
 
  group :assets do
-  gem 'uglifier', '>= 1.0.3'
-  gem 'compass', '>= 0.12.alpha.0'
+  gem 'uglifier'
+  gem 'compass'
 end
 
 group :production do
