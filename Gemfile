@@ -3,12 +3,13 @@ source 'http://rubygems.org'
 gem 'rails'
 gem 'activeadmin'
 gem 'rack'
-gem 'sass-rails'
-gem 'coffee-rails'
 
  group :assets do
   gem 'uglifier'
   gem 'compass'
+  gem 'compass-rails'
+  gem 'sass-rails'
+  gem 'coffee-rails'
 end
 
 group :production do
