@@ -166,7 +166,6 @@ DEPENDENCIES
   compass-rails
   mysql2
   pg
-  rack
   rails
   sass-rails
   thin

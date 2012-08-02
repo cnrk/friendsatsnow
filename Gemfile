@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails'
 gem 'activeadmin'
-gem 'rack'
 
  group :assets do
   gem 'uglifier'
