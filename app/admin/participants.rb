@@ -28,10 +28,7 @@ ActiveAdmin.register Participant do
   member_action :confirm_payment do
     participant = Participant.find(params[:id])
     ConfirmationMailer.confirm_payment(participant).deliver
-    participant.payment_confirmed = true
-    if not participant.paid?
-      participant.payment_date = Time.now
-    end
+    participant.confirm_payment
     participant.save
     redirect_to action: :show, notice: "Zahlung wurde bestaetigt!"
   end
