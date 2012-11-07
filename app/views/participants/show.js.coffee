@@ -7,5 +7,5 @@ $("#content").html '
 <p>Das ist natürlich nur eine Demo-App und wir werden jetzt nicht wirklich skifahren gehen..</p>
 <p>Bei Fragen melde dich bei uns: <a href="mailto:friendsatsnow@gmail.com">friendsatsnow@gmail.com</a></p>
 </div>
-<p id="navlink"><%= link_to raw("Zur&uuml;ck zur Startseite"), url_for(:root), remote: true %></p>
+<p id="navlink"><%= link_to raw("Zur&uuml;ck zur Startseite"), root_path %></p>
 '
