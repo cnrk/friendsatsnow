@@ -1,4 +1,6 @@
 class Participant < ActiveRecord::Base
+  attr_accessible :name, :surname, :email, :payment_date, :payment_confirmed
+
   validates :name, :surname, :email, presence: true
   validates :email, uniqueness: true, on: :create
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create}
@@ -11,4 +13,5 @@ class Participant < ActiveRecord::Base
     self.payment_date ||= Time.now
     self.payment_confirmed = true
   end
+
 end
