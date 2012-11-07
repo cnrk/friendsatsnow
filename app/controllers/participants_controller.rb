@@ -14,7 +14,8 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new(params[:participant])
 
     respond_to do |format|
-      if @participant.save  
+      if @participant.save
+        ConfirmationMailer.confirm_signup(@participant).deliver
         format.js { redirect_to @participant }
       else
         format.js { render action: "new" }
@@ -27,8 +28,7 @@ class ParticipantsController < ApplicationController
   # GET /participants/id
   def show
     @participant = Participant.find(params[:id])
-    ConfirmationMailer.confirm_signup(@participant).deliver
-    
+
     respond_to do |format|
       format.js
     end
