@@ -7,11 +7,13 @@ This is a small rails app to organize a ski trip with friends.
 - As soon as a friend has payed for the event, the administrator can confirm the payment,
 which will send out a confirmation email.
 
-Built with active_admin.
+- Built with active_admin.
 
 # Getting started
 
 - rename env.sample to .env
 - add your Gmail credentials
 - add a secret token (run ```rake secret``` for inspiration)
+- run the tests ```bundle exec rake test```
 - start the application with ```foreman start```
+
