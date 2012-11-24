@@ -53,7 +53,7 @@ Spork.prefork do
     config.include(MailerHelper)
   end
 
-  # Capybara.javascript_driver = :webkit
+  Capybara.javascript_driver = :webkit
 end
 
 Spork.each_run do
