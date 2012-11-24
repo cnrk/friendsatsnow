@@ -1,7 +1,7 @@
 # encoding: UTF-8
 require 'spec_helper'
 
-describe "Signing Up", js: true do
+describe "Signup", js: true do
 
   before do
     visit root_path
@@ -15,75 +15,59 @@ describe "Signing Up", js: true do
     click_button "Anmelden"
   end
 
-  shared_examples_for "a successful signup" do
-    before do
-      signup(user)
-    end
+  it "signs up a user with valid data" do
+    user = build(:participant)
+    signup(user)
 
-    it "shows the confirmation page"  do
-      expect(page).to have_content "Danke für deine Anmeldung!"
-    end
-
-    it "sends a confirmation email" do
-      expect(last_email.to).to include user.email
-    end
-
-    it "has a link to return to the home page" do
-      click_link "Zurück"
-      expect(page).to have_content "Friends@Snow ist leider schon vorbei!"
-    end
+    expect(page).to have_content "Danke für deine Anmeldung!"
+    expect(last_email.to).to include user.email
+    click_link "Zurück"
+    expect(page).to have_content "Friends@Snow ist leider schon vorbei!"
   end
 
-  shared_examples_for "an unsuccessful signup" do |error_message|
-    before do
-      signup(user)
-    end
+  it "doesn't sign up a user without data" do
+    user = build(:participant, name: "", surname: "", email: "")
+    signup(user)
 
-    it "does not show the confirmation page" do
-      expect(page).not_to have_content "Danke für deine Anmeldung!"
-    end
-
-    it "shows a validation error" do
-      expect(page).to have_content error_message
-    end
-
-    it "does not send a confirmation email" do
-      expect(last_email).to be_nil
-    end
+    expect(page).not_to have_content "Danke für deine Anmeldung!"
+    expect(page).to have_content "Vorname darf nicht leer sein."
+    expect(last_email).to be_nil
   end
 
-  context "with a valid name and email" do
-    let(:user) { build(:participant) }
-    it_behaves_like "a successful signup"
+  it "doesn't sign up a user without a firstname" do
+    user = build(:participant, name: "")
+    signup(user)
+
+    expect(page).not_to have_content "Danke für deine Anmeldung!"
+    expect(page).to have_content "Vorname darf nicht leer sein."
+    expect(last_email).to be_nil
   end
 
-  context "without any data" do
-    let(:user) { build(:participant, name: "", surname: "", email: "") }
-    it_behaves_like "an unsuccessful signup", \
-                    "Vorname darf nicht leer sein."
+  it "doesn't sign up a user without a lastname" do
+    user = build(:participant, surname: "")
+    signup(user)
+
+    expect(page).not_to have_content "Danke für deine Anmeldung!"
+    expect(page).to have_content "Name darf nicht leer sein."
+    expect(last_email).to be_nil
   end
 
-  context "without a first name" do
-    let(:user) { build(:participant, name: "") }
-    it_behaves_like "an unsuccessful signup", \
-                    "Vorname darf nicht leer sein."
+  it "doesn't sign up user without an email address" do
+    user = build(:participant, email: "")
+    signup(user)
+
+    expect(page).not_to have_content "Danke für deine Anmeldung!"
+    expect(page).to have_content "Email darf nicht leer sein."
+    expect(last_email).to be_nil
   end
 
-  context "without a last name" do
-    let(:user) { build(:participant, surname: "") }
-    it_behaves_like "an unsuccessful signup", \
-                    "Name darf nicht leer sein."
+  it "doesn't sign up user without an existing address" do
+    user = create(:participant)
+    signup(user)
+
+    expect(page).not_to have_content "Danke für deine Anmeldung!"
+    expect(page).to have_content "Email ist bereits angemeldet"
+    expect(last_email).to be_nil
   end
 
-  context "without an email address" do
-    let(:user) { build(:participant, email: "") }
-    it_behaves_like "an unsuccessful signup", \
-                    "Email darf nicht leer sein."
-  end
-
-  context "with an existing email" do
-    let(:user) { create(:participant) }
-    it_behaves_like "an unsuccessful signup", \
-                    "Email ist bereits angemeldet"
-  end
 end
